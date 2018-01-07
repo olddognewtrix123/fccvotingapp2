@@ -1,6 +1,10 @@
+// getting 'failed to load resource net connection refused' when this is run in Chrome - this is a routing problem
+
 // always get the mongodb(running locally) invoked with mongod --smallfiles
 
 // left off at http://www.clementinejs.com/tutorials/tutorial-beginner.html#SettingUptheServer-SideController
+
+//git add -A  git commit -m "schema and mocha unhunh"  git push origin master
 
 'use strict';
 

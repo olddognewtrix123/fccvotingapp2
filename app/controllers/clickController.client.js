@@ -13,7 +13,8 @@
    var addButton = document.querySelector('.btn-add');
    var deleteButton = document.querySelector('.btn-delete');
    var clickNbr = document.querySelector('#click-nbr');
-   var apiUrl = 'https://localhost:8080/api/clicks';
+   //var apiUrl = 'https://localhost:8080/api/clicks';
+   var apiUrl = 'https://clementinetutorial1-olddognewtrix123.c9users.io/api/clicks';
 
    
    
@@ -33,16 +34,16 @@
        
        
        function ajaxRequest (method, url, callback) {
-       var xmlhttp = new XMLHttpRequest();
+       var xmlhttps = new XMLHttpRequest();
 
-       xmlhttp.onreadystatechange = function () {
-         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            callback(xmlhttp.response);
+       xmlhttps.onreadystatechange = function () {
+         if (xmlhttps.readyState === 4 && xmlhttps.status === 200) {
+            callback(xmlhttps.response);
          }
        };
 
-       xmlhttp.open(method, url, true);
-       xmlhttp.send();
+       xmlhttps.open(method, url, true);
+       xmlhttps.send();
        }
    
    

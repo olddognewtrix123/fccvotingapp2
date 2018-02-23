@@ -4,7 +4,7 @@ function clickHandler (db) {
 
 	var clicks = db.collection('clicks');
 
-	this.getClicks = function (req, res) { // getClicks finds and returns the number of clicks in the 'clicks' collection
+	this.getClicks = function (req, res) { // uses the findOne() argument to find and returns the number of clicks in the 'clicks' collection
 
 	//	var clickProjection = { '_id': false }; // we don't want the default _id value included in the results
 		
@@ -43,6 +43,31 @@ function clickHandler (db) {
                });
             }
 		});
+	};
+	
+	this.addClick = function (req, res) { // uses the findAndModify() argument
+		clicks.findAndModify(
+				{}, // returns all documents
+				{ '_id': 1 }, // the sort order in which the results should be arranged
+				{ $inc: { 'clicks': 1 } }, // $inc takes the property to modify (clicks) and the number to increment by (1)
+				function (err, result) { // cb func that throw error or updates res and sends res back to browser
+					if (err) { throw err; }
+
+					res.json(result);
+				}
+			);
+	};
+
+	this.resetClicks = function (req, res) { //uses the update() argument
+		clicks.update(
+				{}, // returns all documents
+				{ 'clicks': 0 }, // updated value for any records found ( in this case needs to reset to 0)
+				function (err, result) { 
+					if (err) { throw err; }
+
+					res.json(result);
+				}
+			);
 	};
 }
 
